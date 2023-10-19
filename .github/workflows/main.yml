@@ -1,0 +1,14 @@
+name: CI-CD
+
+on:
+  push:
+    branches: ["main"]
+  workworkflow_dispatch:
+
+  jobs:
+    CI:
+      - name: Efetuar Login no Docker Hub
+        uses: docker/login-action@v3.0.0
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PWD }}
